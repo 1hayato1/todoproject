@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}やること一覧{% endblock %}
+{% block h1 %}やること一覧{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-3">
+    {% for item in object_list %}
+        <div class="p-4 m-4 bg-light border border-primary rounded">
+            <h4>{{ item.title }}</h4>
+            <div class="mt-3">
+                <a href="{% url 'update-todo' item.pk %}">更新</a>
+                <a href="{% url 'delete-todo' item.pk %}">削除</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock content %}
